@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { StyleSheet, ImageBackground, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StatusBar as Bar } from 'expo-status-bar';
+import { StatusBar as StateBar } from 'expo-status-bar';
 
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
@@ -20,7 +20,7 @@ export default function App() {
 
 	function gameOverHandler(numberOfRounds) {
 		setGameIsOver(true);
-		setGuessRounds(numberOfRounds)
+		setGuessRounds(numberOfRounds);
 	}
 
 	function startNewGameHandler() {
@@ -41,19 +41,19 @@ export default function App() {
 	}
 
 	return (
-		<>
-		<Bar style='light'/>
-		<LinearGradient colors={[ Colors.primary700, Colors.accent500 ]} style={styles.rootScreen}>
-			<ImageBackground
-				source={require('./assets/images/background.png')}
-				resizeMode="cover"
-				style={styles.rootScreen}
-				imageStyle={styles.backgroundImage}
-			>
-				<SafeAreaView style={styles.safeArea}>{screen}</SafeAreaView>
-			</ImageBackground>
-		</LinearGradient>
-		</>
+		<Fragment>
+			<StateBar style="light" />
+			<LinearGradient colors={[ Colors.primary700, Colors.accent500 ]} style={styles.rootScreen}>
+				<ImageBackground
+					source={require('./assets/images/background.png')}
+					resizeMode="cover"
+					style={styles.rootScreen}
+					imageStyle={styles.backgroundImage}
+				>
+					<SafeAreaView style={styles.safeArea}>{screen}</SafeAreaView>
+				</ImageBackground>
+			</LinearGradient>
+		</Fragment>
 	);
 }
 
