@@ -10,7 +10,7 @@ export default Title;
 
 const styles = StyleSheet.create({
 	title: {
-		fontFamily: 'Montserrat_700Bold',
+		fontWeight: 'bold',
 		fontSize: 24,
 		color: Colors.secondaryAccent,
 		textAlign: 'center',
