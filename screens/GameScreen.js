@@ -86,7 +86,9 @@ function GameScreen({ userNumber, onGameOver }) {
 				<FlatList
 					data={guessRounds}
 					keyExtractor={(item) => item}
-					renderItem={(itemData) => <GuessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item} />}
+					renderItem={(itemData) => (
+						<GuessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item} />
+					)}
 				/>
 			</View>
 		</View>
@@ -98,7 +100,8 @@ export default GameScreen;
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		padding: 24
+		padding: 24,
+		alignItems: 'center'
 	},
 	instructionText: {
 		marginBottom: 12
