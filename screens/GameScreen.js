@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 import Title from '../components/ui/Title';
 import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
-import Colors from '../constants/colors';
 
 function generateRandomBetween(min, max, exclude) {
 	const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -27,7 +26,7 @@ function GameScreen({ userNumber }) {
 			(direction === 'lower' && currentGuess < userNumber) ||
 			(direction === 'greater' && currentGuess > userNumber)
 		) {
-			Alert.alert(`Don't lie`, 'you know that this is wrong...', { text: 'Sorry!', style: 'cancel' });
+			Alert.alert('You shalt not lie!', 'you know that this is wrong...', [{ text: 'Sorry!', style: 'cancel' },]);
 			return;
 		}
 		if (direction === 'lower') {
@@ -50,9 +49,8 @@ function GameScreen({ userNumber }) {
 					<PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>+</PrimaryButton>
 				</View>
 			</View>
-			<View>
-				<Text>LOG ROUNDS</Text>
-			</View>
+
+			<Text>LOG ROUNDS</Text>
 		</View>
 	);
 }
