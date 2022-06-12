@@ -6,6 +6,9 @@ import Colors from '../constants/colors';
 function StartGameScreen({ onPickNumber }) {
 	const [ enteredNumber, setEnteredNumber ] = useState('');
 
+	function numberInputHandler(enteredText) {
+		setEnteredNumber(enteredText);
+	}
 
 	function resetInputHandler() {
 		setEnteredNumber('');
@@ -13,7 +16,7 @@ function StartGameScreen({ onPickNumber }) {
 
 	function confirmInputHandler() {
 		const chosenNumber = parseInt(enteredNumber);
-		
+
 		if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
 			Alert.alert('Invalid Number', 'Number has to be a number between 1 and 99.', [
 				{ text: 'Okay', style: 'destructive', onPress: resetInputHandler }
@@ -32,7 +35,7 @@ function StartGameScreen({ onPickNumber }) {
 				keyboardType="number-pad"
 				autoCapitalize="none"
 				autoCorrect={false}
-
+				onChangeText={numberInputHandler}
 				value={enteredNumber}
 			/>
 			<View style={styles.buttonsContainer}>
